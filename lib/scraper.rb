@@ -27,10 +27,10 @@ class Scraper
     
     page.css(".social-icon-container").each do |media|
       student = {
-      :twitter => media.css(".student-name").text,
-      :linkedin => media.css(".student-location").text,
+      :twitter => media.css("a").attribute("href").value,
+      :linkedin => media.css("a").attribute("href").value,
       :github => media.css("a").attribute("href").value,
-      :blog => media.css("a").attribute("href").value,
+      :blog => media.css("a").attribute("href").value
       }
       students << student
     end
