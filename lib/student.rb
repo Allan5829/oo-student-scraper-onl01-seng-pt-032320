@@ -10,7 +10,7 @@ class Student
   end
 
   def self.create_from_collection(students_array)
-    array = Hash[students_array.flatten]
+    array = Hash[students_array.flatten(1)]
     array.each {|key, value| self.send(("#{key}="), value)}
   end
 
