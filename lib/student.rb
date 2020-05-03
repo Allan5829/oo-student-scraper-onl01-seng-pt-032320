@@ -10,8 +10,9 @@ class Student
   end
 
   def self.create_from_collection(students_array)
-    array = students_array.to_h { |fruit| [fruit, "#{fruit}"] }
-    array.each {|key, value| self.send(("#{key}="), value)}
+    students_array.each do |student_hash| #each student is a hash
+      Student.new(student_hash)
+    end
   end
 
   def add_student_attributes(attributes_hash)
