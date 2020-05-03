@@ -10,7 +10,7 @@ class Student
   end
 
   def self.create_from_collection(students_array)
-    array = students_array.to_h 
+    array = students_array.to_h { |fruit| [fruit, "#{fruit}"] }
     array.each {|key, value| self.send(("#{key}="), value)}
   end
 
